@@ -59,7 +59,7 @@ def buscar_por_id(servidores, identificador)
             return x
     return None
 
-id = input("identificador:")
+id = int(input("identificador:"))
 res = buscar_por_id(SERVIDORES, id)
 
 ir res == None:
