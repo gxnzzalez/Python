@@ -12,4 +12,8 @@ ir res == None:
 else
     print("Encontrado")
     mostrar_inventario([res])
-    
+
+
+if __name__ == '__main__':
+    print(" ¡¡¡ Solo se imprime si se invoca al modulo")
+    print(__name__)
