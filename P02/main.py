@@ -1,4 +1,4 @@
-import funciones as filtrar
+import funciones as f
 
 
 lista = f.obtener_productos()

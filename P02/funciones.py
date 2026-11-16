@@ -1,4 +1,28 @@
+import requests
+
 URL_PRODUCTOS = "https://dummyjson.com/products"
+PRODUCTOS_EJEMPLO = [
+    {
+        "id": 1, "title": "Router", "category": "redes",
+        "price": 80.0, "stock": 2, "rating": 2.5,
+        "tags": ["wifi", "redes"],
+        "dimensions": {"width": 20, "height": 5, "depth": 15},
+        "reviews": [{"rating": 5}, {"rating": 3}, {"rating": 4}],
+    },
+    {
+        "id": 2, "title": "Switch", "category": "redes",
+        "price": 120.0, "stock": 0, "rating": 4.1,
+        "tags": [], "dimensions": {}, "reviews": [],
+    },
+    {
+        "id": 3, "title": "UPS", "category": "energia",
+        "price": 100.0, "stock": 9, "rating": 4.5,
+        "tags": ["rack"], "dimensions": {},
+        "reviews": [{"rating": 2}, {"rating": 5}],
+    },
+]
+
+
 
 def obtener_productos(limite=10):
     """Consulta DummyJSON y devuelve la lista 'products'.
