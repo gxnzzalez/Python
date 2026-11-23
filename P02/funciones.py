@@ -45,3 +45,30 @@ def obtener_productos(limite=10):
         raise ValueError("Respuesta inesperada: falta la lista 'products'")
 
     return datos["products"]
+
+
+def mostrar_productos(productos):
+    lista = obtener_productos()
+    print('-'*80)
+    print(f"{'ID':<5}{'PRODUCTO':<30}{'CATEGORIA':<10}{'PRECIO':<10}{'STOCK':<15}")
+    print('-'*80)
+    for x in productos:
+        print(f"{x["id"]:<5}{x["title"]:<30}{x["category"]:<10}{x["price"]:<10}{x["stock"]:<15}")
+
+def buscar_por_titulo(productos, texto):
+    texto = texto.strip().lower()
+    resultados = []
+    for x in productos:
+        if texto in x['title'].lower():
+            resultados.append(x)
+    return resultados
+    
+    
+def filtrar_productos(productos, categoria=None, precio_max=None, solo_disponibles= False):
+    resultado = [] 
+    for x in productos:
+        if categoria != None:
+            categoria = categoria.strip()
+        if ( categoria == None or categoria == x['category']) and ( precio_max == None or precio_max > x['price']) and ( solo_disponibles == False or x['stock'] > 0):
+            resultado.append(x)
+    return resultado   
